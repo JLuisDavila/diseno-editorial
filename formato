@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formato · Diseño Editorial</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <?php include 'sidebar.html'; ?>
+
+  <main class="content">
+    <h1>Formato</h1>
+    <p>Contenido de la sección Formato.</p>
+  </main>
+
+</body>
+</html>
