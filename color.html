@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Color</title>
+  <title>Diseño Editorial — Color</title>
+  <meta name="description" content="Principios y criterios de uso del color en diseño editorial." />
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
@@ -17,17 +18,17 @@
       --accent-2:#5a2bd1;
       --white:#ffffff;
       --border: rgba(255,255,255,0.04);
-      --header-img-url: url('PLACEHOLDER-HEADER.jpg');
+      --header-img-url: url('imgs/header-color.jpg');
     }
 
     *{box-sizing:border-box}
     html,body{height:100%; margin:0; font-family:Inter, system-ui; background:var(--bg); color:var(--white);}
+
     .wrap{display:flex; min-height:100vh}
 
     .sidebar{
-      width:260px; background:linear-gradient(180deg,var(--panel), #0b0810);
-      border-right:1px solid var(--border); padding:28px;
-      position:fixed; top:0; left:0; bottom:0; overflow:auto;
+      width:260px; background:linear-gradient(180deg,var(--panel), #0b0810); border-right:1px solid var(--border);
+      padding:28px; position:fixed; top:0; left:0; bottom:0; overflow:auto;
     }
 
     .brand{display:flex; gap:12px; align-items:center; margin-bottom:18px}
@@ -35,144 +36,144 @@
     .brand h1{font-size:16px;margin:0}
     .brand p{margin:0;font-size:12px;color:var(--muted)}
 
+    nav.primary{margin-top:6px}
     nav.primary a{
       display:flex;gap:10px;align-items:center;padding:10px 8px;border-radius:8px;
-      color:var(--muted);text-decoration:none;font-weight:600;margin-bottom:6px;
+      color:var(--muted);text-decoration:none;font-weight:600;margin-bottom:6px
     }
-    nav.primary a:hover{color:var(--white)}
     nav.primary a svg{flex-shrink:0}
+    nav.primary a:hover,
+    nav.primary a[aria-current="page"]{color:var(--white)}
 
-    .actions{margin-top:auto;display:flex;flex-direction:column;gap:10px}
+    .sidebar .actions{margin-top:40px;display:flex;flex-direction:column;gap:10px}
     .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
     .btn.mail{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:var(--white)}
     .btn.ghost{background:transparent;border:1px solid var(--border);color:var(--muted)}
 
-    main{margin-left:260px;flex:1}
+    .mobile-toggle{display:none;margin-left:auto}
 
+    main{margin-left:260px;flex:1}
     .header{
-      height:320px; display:flex; align-items:flex-end;
+      height:320px; display:flex; align-items:flex-end; color:var(--white);
       background-image: var(--header-img-url);
-      background-size:cover; background-position:center;
-      position:relative; border-bottom:1px solid var(--border);
+      background-size:cover; background-position:center; position:relative; border-bottom:1px solid var(--border);
     }
-    .header::after{
-      content:'';position:absolute;inset:0;
-      background:linear-gradient(180deg, rgba(9,6,12,0.25), rgba(10,6,15,0.75));
-    }
-    .header .hero{
-      position:relative; z-index:2;padding:36px 60px;
-      display:flex;align-items:center;gap:24px;
-    }
+    .header::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(9,6,12,0.25), rgba(10,6,15,0.75));}
+    .header .hero{position:relative; z-index:2;padding:36px 60px;display:flex;align-items:center;gap:24px}
 
     .hero .title{font-size:28px;margin:0;color:var(--accent)}
-    .hero .subtitle{color:var(--muted)}
+    .hero .subtitle{color:var(--muted);margin-top:6px}
 
-    .container{padding:36px 60px}
+    .container{padding:36px 60px;line-height:1.65}
+
+    .container h2{margin-top:32px;color:var(--accent)}
+    .container p{color:var(--muted)}
+
     footer{padding:24px 60px;border-top:1px solid var(--border);color:var(--muted)}
 
+    .backtop{position:fixed;right:22px;bottom:22px;background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:12px;border-radius:999px;color:white;text-decoration:none;}
+
     @media (max-width:980px){
-      .sidebar{transform:translateX(-100%);transition:transform .28s;z-index:40}
+      .sidebar{position:fixed;transform:translateX(-100%);transition:transform .28s;z-index:40}
       .sidebar.open{transform:translateX(0)}
+      .mobile-toggle{display:inline-flex}
       main{margin-left:0}
     }
   </style>
 </head>
 
 <body>
+
 <div class="wrap">
 
+  <!-- SIDEBAR -->
   <aside class="sidebar">
-
     <div class="brand">
       <div class="logo">DE</div>
       <div>
         <h1>Diseño Editorial</h1>
-        <p>Guía y recursos</p>
+        <p class="muted">Formato · Tipografía · Retícula</p>
       </div>
     </div>
 
     <nav class="primary">
-
       <a href="formato.html">
-        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-          <rect x="3" y="3" width="14" height="14"/>
-        </svg>
+        <svg width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor"/></svg>
         Formato
       </a>
 
       <a href="tipografia.html">
-        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M4 17h12M6 3h8l-4 14"/>
-        </svg>
+        <svg width="18" height="18" viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M12 4l-4 12"/><path d="M12 4l4 12"/></svg>
         Tipografía
       </a>
 
       <a href="reticula.html">
-        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-          <rect x="3" y="3" width="6" height="6"/>
-          <rect x="11" y="3" width="6" height="6"/>
-          <rect x="3" y="11" width="6" height="6"/>
-          <rect x="11" y="11" width="6" height="6"/>
-        </svg>
+        <svg width="18" height="18" viewBox="0 0 24 24"><path d="M3 9h18M3 15h18"/></svg>
         Retícula
       </a>
 
-      <a href="color.html" style="color:white">
-        <svg width="20" height="20" fill="none" stroke="white" stroke-width="2">
-          <circle cx="10" cy="10" r="7"/>
-        </svg>
+      <a href="color.html" aria-current="page">
+        <svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" stroke="currentColor"/></svg>
         Color
       </a>
 
       <a href="cubierta.html">
-        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M4 3h12v14H4z"/>
-        </svg>
+        <svg width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="4" width="14" height="16"/><path d="M17 6h3v12h-3"/></svg>
         Cubierta / Portada
       </a>
 
       <a href="imagenes.html">
-        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-          <rect x="3" y="3" width="14" height="14"/>
-          <circle cx="9" cy="10" r="2"/>
-          <path d="M3 14l4-4 3 3 4-5 3 3"/>
-        </svg>
+        <svg width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14"/><path d="M8 11l2 2 3-3 4 4"/></svg>
         Uso de imágenes
       </a>
 
       <a href="proceso.html">
-        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 2v6M12 16v6M4.9 7.5L9.1 11.7M19.1 16.5L14.9 12.3"/>
-        </svg>
+        <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2v6"/><path d="M12 16v6"/><path d="M4.9 7.5l4.24 4.24"/><path d="M19.1 16.5l-4.24-4.24"/></svg>
         Proceso de maquetación
       </a>
-
     </nav>
 
     <div class="actions">
       <a class="btn mail" href="mailto:jose.davila@institutoalejandria.edu.mx">✉️ Enviar correo</a>
-      <a class="btn ghost" href="index.html">⬅ Volver al inicio</a>
+      <a class="btn ghost" href="#top">⤴ Volver al inicio</a>
     </div>
-
   </aside>
 
+  <!-- MAIN -->
   <main>
 
-    <section class="header">
+    <header class="header">
       <div class="hero">
-        <h2 class="title">Color</h2>
-        <p class="subtitle">Paletas, contrastes y accesibilidad.</p>
+        <div>
+          <h1 class="title">Color</h1>
+          <p class="subtitle">Percepción, contraste, armonía y aplicación editorial.</p>
+        </div>
       </div>
+    </header>
+
+    <section class="container">
+
+      <h2>El rol del color en el diseño editorial</h2>
+      <p>El color en el diseño editorial no es solo un elemento estético: estructura la lectura, jerarquiza, guía y define la personalidad de una publicación.</p>
+
+      <h2>Armonías cromáticas</h2>
+      <p>Las armonías —análogas, complementarias, triádicas— ayudan a establecer coherencia visual y refuerzan la identidad gráfica.</p>
+
+      <h2>Contraste y legibilidad</h2>
+      <p>El contraste entre texto y fondo es crucial. Un diseño editorial profesional prioriza siempre la legibilidad.</p>
+
+      <h2>Color en impresión</h2>
+      <p>Es esencial considerar la conversión entre RGB y CMYK, los perfiles ICC, y las limitaciones de tinta para garantizar un resultado fiel.</p>
+
     </section>
 
-    <div class="container">
-      <h1>Color</h1>
-      <p>Contenido de la sección color.</p>
-    </div>
+    <footer>
+      © 2025 · Diseño Editorial — Curso
+    </footer>
 
-    <footer>Diseño Editorial © 2025</footer>
   </main>
 
 </div>
+
 </body>
 </html>
