@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Diseño Editorial — Formato</title>
-  <meta name="description" content="Formato en diseño editorial." />
+  <title>Formato — Diseño Editorial</title>
+  <meta name="description" content="Guía sobre formato en diseño editorial: tamaños de página, márgenes, orientación, proporciones." />
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
@@ -18,11 +18,12 @@
       --accent-2:#5a2bd1;
       --white:#ffffff;
       --border: rgba(255,255,255,0.04);
-      --header-img-url: url('headers/formato.jpg');
+      --header-img-url: url('PLACEHOLDER-FORMATO.jpg');
     }
 
     *{box-sizing:border-box}
     html,body{height:100%; margin:0; font-family:Inter, system-ui; background:var(--bg); color:var(--white);}
+
     .wrap{display:flex; min-height:100vh}
 
     .sidebar{
@@ -43,7 +44,7 @@
     nav.primary a svg{flex-shrink:0}
     nav.primary a:hover{color:var(--white)}
 
-    .sidebar .actions{margin-top:24px;display:flex;flex-direction:column;gap:10px}
+    .sidebar .actions{margin-top:auto;display:flex;flex-direction:column;gap:10px}
     .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
     .btn.mail{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:var(--white)}
     .btn.ghost{background:transparent;border:1px solid var(--border);color:var(--muted)}
@@ -51,6 +52,7 @@
     .mobile-toggle{display:none;margin-left:auto}
 
     main{margin-left:260px;flex:1}
+
     .header{
       height:320px; display:flex; align-items:flex-end; color:var(--white);
       background-image: var(--header-img-url);
@@ -63,6 +65,7 @@
     .hero .subtitle{color:var(--muted);margin-top:6px}
 
     .container{padding:36px 60px}
+
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
     .card{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));padding:18px;border-radius:12px;border:1px solid var(--border)}
     .card p{color:var(--muted)}
@@ -82,50 +85,101 @@
 <div class="wrap">
 
   <!-- SIDEBAR -->
-  <aside class="sidebar">
+  <aside class="sidebar" id="sidebar" aria-label="Navegación lateral">
     <div class="brand">
       <div class="logo">DE</div>
       <div>
         <h1>Diseño Editorial</h1>
         <p class="muted">Formato · Tipografía · Retícula</p>
       </div>
+      <button class="mobile-toggle" aria-label="Abrir menú" style="margin-left:auto;background:transparent;border:none;color:var(--muted);font-weight:700">☰</button>
     </div>
 
     <nav class="primary">
-      <a href="formato.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.4"/></svg> Formato</a>
-      <a href="tipografia.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 20h16" stroke="currentColor" stroke-width="1.4"/><path d="M12 4l-4 12" stroke="currentColor" stroke-width="1.4"/><path d="M12 4l4 12" stroke="currentColor" stroke-width="1.4"/></svg> Tipografía</a>
-      <a href="reticula.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 9h18M3 15h18" stroke="currentColor" stroke-width="1.4"/></svg> Retícula</a>
-      <a href="color.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="7" stroke="currentColor" stroke-width="1.4"/></svg> Color</a>
-      <a href="cubierta.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="14" height="16" rx="1.2" stroke="currentColor" stroke-width="1.4"/><path d="M17 6h3v12h-3" stroke="currentColor" stroke-width="1.4"/></svg> Cubierta / Portada</a>
-      <a href="imagenes.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="1.2" stroke="currentColor" stroke-width="1.4"/><path d="M8 11l2 2 3-3 4 4" stroke="currentColor" stroke-width="1.4"/></svg> Uso de imágenes</a>
-      <a href="proceso.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2v6" stroke="currentColor" stroke-width="1.4"/><path d="M12 16v6" stroke="currentColor" stroke-width="1.4"/><path d="M4.9 7.5l4.24 4.24" stroke="currentColor" stroke-width="1.4"/><path d="M19.1 16.5l-4.24-4.24" stroke="currentColor" stroke-width="1.4"/></svg> Proceso de maquetación</a>
+
+      <a href="formato.html" class="navlink" aria-current="page">
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.4"/></svg>
+        Formato
+      </a>
+
+      <a href="tipografia.html" class="navlink">
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M4 20h16" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M12 4l-4 12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M12 4l4 12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        Tipografía
+      </a>
+
+      <a href="reticula.html" class="navlink">
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M3 9h18M3 15h18" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        Retícula
+      </a>
+
+      <a href="color.html" class="navlink">
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" stroke="currentColor" stroke-width="1.4"/></svg>
+        Color
+      </a>
+
+      <a href="cubierta.html" class="navlink">
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><rect x="3" y="4" width="14" height="16" rx="1.2" stroke="currentColor" stroke-width="1.4"/><path d="M17 6h3v12h-3" stroke="currentColor" stroke-width="1.4"/></svg>
+        Cubierta / Portada
+      </a>
+
+      <a href="imagenes.html" class="navlink">
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="1.2" stroke="currentColor" stroke-width="1.4"/><path d="M8 11l2 2 3-3 4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Uso de imágenes
+      </a>
+
+      <a href="proceso.html" class="navlink">
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M12 2v6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M12 16v6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M4.9 7.5l4.24 4.24" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M19.1 16.5l-4.24-4.24" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        Proceso de maquetación
+      </a>
     </nav>
 
     <div class="actions">
       <a class="btn mail" href="mailto:jose.davila@institutoalejandria.edu.mx">✉️ Enviar correo</a>
-      <a class="btn ghost" href="#">⤴ Volver al inicio</a>
+      <a class="btn ghost" href="index.html">⤴ Volver al inicio</a>
     </div>
   </aside>
 
   <!-- MAIN -->
   <main>
+
     <header class="header">
       <div class="hero">
-        <h2 class="title">Formato</h2>
-        <p class="subtitle">Dimensiones, márgenes y estructura base</p>
+        <div>
+          <h2 class="title">Formato</h2>
+          <p class="subtitle">Tamaños, márgenes, proporciones y orientación del documento.</p>
+        </div>
       </div>
     </header>
 
-    <div class="container">
-      <h2>¿Qué es el formato?</h2>
-      <p>Contenido base editable...</p>
-    </div>
+    <section class="container">
+      <h2>Conceptos básicos del formato editorial</h2>
+      <p class="muted">
+        El formato define las dimensiones y proporciones del documento. Afecta la legibilidad, el flujo de lectura y la percepción estética del contenido.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Tamaños estándar</h3>
+          <p>Formatos como carta, A4, A5, y tamaños comerciales para libros y revistas.</p>
+        </div>
+
+        <div class="card">
+          <h3>Márgenes y caja tipográfica</h3>
+          <p>Relación entre el área útil y el espacio negativo en la página.</p>
+        </div>
+
+        <div class="card">
+          <h3>Proporciones</h3>
+          <p>Aplicación de sistemas como la proporción áurea o series modulares A, B y C.</p>
+        </div>
+      </div>
+    </section>
 
     <footer>
-      © Diseño Editorial — Formato
+      © 2025 — Diseño Editorial
     </footer>
-  </main>
 
+  </main>
 </div>
 </body>
 </html>
