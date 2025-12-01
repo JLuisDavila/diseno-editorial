@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Diseño Editorial — Retícula</title>
-  <meta name="description" content="Principios y estructura de retículas para diseño editorial." />
+  <meta name="description" content="Principios de retículas y sistemas modulares en diseño editorial." />
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
@@ -41,7 +41,15 @@
       display:flex;gap:10px;align-items:center;padding:10px 8px;border-radius:8px;
       color:var(--muted);text-decoration:none;font-weight:600;margin-bottom:6px
     }
-    nav.primary a svg{flex-shrink:0}
+
+    /* ICONOS SIEMPRE USAN currentColor */
+    nav.primary a svg path,
+    nav.primary a svg rect,
+    nav.primary a svg circle,
+    nav.primary a svg line {
+      stroke: currentColor;
+    }
+
     nav.primary a:hover,
     nav.primary a[aria-current="page"]{color:var(--white)}
 
@@ -65,7 +73,6 @@
     .hero .subtitle{color:var(--muted);margin-top:6px}
 
     .container{padding:36px 60px;line-height:1.65}
-
     .container h2{margin-top:32px;color:var(--accent)}
     .container p{color:var(--muted)}
 
@@ -97,38 +104,61 @@
     </div>
 
     <nav class="primary">
+
       <a href="formato.html">
-        <svg width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24">
+          <rect x="3" y="4" width="18" height="16" rx="2"/>
+        </svg>
         Formato
       </a>
 
       <a href="tipografia.html">
-        <svg width="18" height="18" viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M12 4l-4 12"/><path d="M12 4l4 12"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24">
+          <path d="M4 20h16"/>
+          <path d="M12 4l-4 12"/>
+          <path d="M12 4l4 12"/>
+        </svg>
         Tipografía
       </a>
 
       <a href="reticula.html" aria-current="page">
-        <svg width="18" height="18" viewBox="0 0 24 24"><path d="M3 9h18M3 15h18"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24">
+          <path d="M3 9h18"/>
+          <path d="M3 15h18"/>
+        </svg>
         Retícula
       </a>
 
       <a href="color.html">
-        <svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" stroke="currentColor"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="7"/>
+        </svg>
         Color
       </a>
 
       <a href="cubierta.html">
-        <svg width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="4" width="14" height="16"/><path d="M17 6h3v12h-3"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24">
+          <rect x="3" y="4" width="14" height="16"/>
+          <path d="M17 6h3v12h-3"/>
+        </svg>
         Cubierta / Portada
       </a>
 
       <a href="imagenes.html">
-        <svg width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14"/><path d="M8 11l2 2 3-3 4 4"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24">
+          <rect x="3" y="4" width="18" height="14"/>
+          <path d="M8 11l2 2 3-3 4 4"/>
+        </svg>
         Uso de imágenes
       </a>
 
       <a href="proceso.html">
-        <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2v6"/><path d="M12 16v6"/><path d="M4.9 7.5l4.24 4.24"/><path d="M19.1 16.5l-4.24-4.24"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24">
+          <path d="M12 2v6"/>
+          <path d="M12 16v6"/>
+          <path d="M4.9 7.5l4.24 4.24"/>
+          <path d="M19.1 16.5l-4.24-4.24"/>
+        </svg>
         Proceso de maquetación
       </a>
     </nav>
@@ -139,14 +169,14 @@
     </div>
   </aside>
 
-  <!-- MAIN -->
+  <!-- MAIN CONTENT -->
   <main>
 
     <header class="header">
       <div class="hero">
         <div>
           <h1 class="title">Retícula</h1>
-          <p class="subtitle">Estructura invisible que organiza la página.</p>
+          <p class="subtitle">Estructuras invisibles que ordenan el diseño editorial.</p>
         </div>
       </div>
     </header>
@@ -154,19 +184,16 @@
     <section class="container">
 
       <h2>¿Qué es una retícula?</h2>
-      <p>La retícula es la estructura base del diseño editorial. Ordena, jerarquiza y da coherencia visual al conjunto de páginas.</p>
+      <p>La retícula es un sistema estructural que organiza el contenido de una página mediante columnas, módulos, márgenes y líneas guía.</p>
 
-      <h2>Columnas y márgenes</h2>
-      <p>Una retícula puede tener desde dos hasta doce columnas, dependiendo del tipo de publicación. Los márgenes funcionan como “zonas de respiración”.</p>
+      <h2>Columnas y módulos</h2>
+      <p>Las columnas definen el flujo del contenido; los módulos generan una cuadrícula más precisa para maquetaciones complejas.</p>
 
-      <h2>Modulación</h2>
-      <p>Las retículas modulares permiten dividir la página en unidades proporcionales que soportan una mayor complejidad visual.</p>
+      <h2>Jerarquía visual</h2>
+      <p>Una retícula bien aplicada permite ordenar información de forma clara, legible y coherente.</p>
 
-      <h2>Retícula editorial clásica</h2>
-      <p>Basada en la proporción áurea, construye relaciones armoniosas entre caja tipográfica, márgenes y columnas.</p>
-
-      <h2>Aplicación</h2>
-      <p>Una buena retícula permite variación con coherencia. No limita: proporciona una base flexible que mantiene el orden incluso en diseños dinámicos.</p>
+      <h2>Retículas en publicaciones</h2>
+      <p>Revistas, periódicos y libros emplean diferentes configuraciones según necesidades de texto, imágenes y estructura editorial.</p>
 
     </section>
 
