@@ -22,105 +22,72 @@
     }
 
     *{box-sizing:border-box}
-    html,body{
-      height:100%; margin:0;
-      font-family:Inter, system-ui;
-      background:var(--bg);
-      color:var(--white);
-    }
+    html,body{height:100%; margin:0; font-family:Inter, system-ui; background:var(--bg); color:var(--white);}
 
     .wrap{display:flex; min-height:100vh}
 
     .sidebar{
-      width:260px;
-      background:linear-gradient(180deg,var(--panel), #0b0810);
-      border-right:1px solid var(--border);
-      padding:28px;
-      position:fixed; top:0; left:0; bottom:0;
-      overflow:auto;
+      width:260px; background:linear-gradient(180deg,var(--panel), #0b0810); border-right:1px solid var(--border);
+      padding:28px; position:fixed; top:0; left:0; bottom:0; overflow:auto;
     }
 
     .brand{display:flex; gap:12px; align-items:center; margin-bottom:18px}
-    .logo{
-      width:52px;height:52px;border-radius:10px;
-      background:linear-gradient(135deg,var(--accent),var(--accent-2));
-      display:grid;place-items:center;font-weight:800;
-    }
+    .logo{width:52px;height:52px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;font-weight:800;}
     .brand h1{font-size:16px;margin:0}
     .brand p{margin:0;font-size:12px;color:var(--muted)}
 
     nav.primary{margin-top:6px}
     nav.primary a{
-      display:flex;gap:10px;align-items:center;
-      padding:10px 8px;border-radius:8px;
-      color:var(--muted);
-      text-decoration:none;font-weight:600;
-      margin-bottom:6px;
+      display:flex;gap:10px;align-items:center;padding:10px 8px;border-radius:8px;
+      color:var(--muted);text-decoration:none;font-weight:600;margin-bottom:6px
     }
+
     nav.primary a svg{
       flex-shrink:0;
-      stroke:currentColor; /* <-- fuerza blanco con aria-current */
+      stroke: var(--muted); /* 👈 ICONOS EN BLANCO/SEMI BLANCO */
     }
+
     nav.primary a:hover,
     nav.primary a[aria-current="page"]{
       color:var(--white);
     }
+    nav.primary a:hover svg,
+    nav.primary a[aria-current="page"] svg{
+      stroke: var(--white); /* 👈 ICONO BLANCO AL ACTIVARSE */
+    }
 
-    .actions{margin-top:40px;display:flex;flex-direction:column;gap:10px}
-    .btn{
-      display:inline-flex;align-items:center;gap:10px;
-      padding:10px 14px;border-radius:10px;
-      text-decoration:none;font-weight:700
-    }
-    .btn.mail{
-      background:linear-gradient(90deg,var(--accent),var(--accent-2));
-      color:var(--white);
-    }
-    .btn.ghost{
-      background:transparent;
-      border:1px solid var(--border);
-      color:var(--muted);
-    }
+    .sidebar .actions{margin-top:40px;display:flex;flex-direction:column;gap:10px}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
+    .btn.mail{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:var(--white)}
+    .btn.ghost{background:transparent;border:1px solid var(--border);color:var(--muted)}
+
+    .mobile-toggle{display:none;margin-left:auto}
 
     main{margin-left:260px;flex:1}
-
     .header{
-      height:320px; display:flex; align-items:flex-end;
+      height:320px; display:flex; align-items:flex-end; color:var(--white);
       background-image: var(--header-img-url);
-      background-size:cover; background-position:center;
-      position:relative;
-      border-bottom:1px solid var(--border);
-      color:var(--white);
+      background-size:cover; background-position:center; position:relative; border-bottom:1px solid var(--border);
     }
-    .header::after{
-      content:'';position:absolute;inset:0;
-      background:linear-gradient(180deg, rgba(9,6,12,0.25), rgba(10,6,15,0.75));
-    }
-    .hero{
-      position:relative; z-index:2;
-      padding:36px 60px;
-      display:flex;align-items:center;gap:24px;
-    }
+    .header::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(9,6,12,0.25), rgba(10,6,15,0.75));}
+    .header .hero{position:relative; z-index:2;padding:36px 60px;display:flex;align-items:center;gap:24px}
 
-    .title{font-size:28px;margin:0;color:var(--accent)}
-    .subtitle{color:var(--muted);margin-top:6px}
+    .hero .title{font-size:28px;margin:0;color:var(--accent)}
+    .hero .subtitle{color:var(--muted);margin-top:6px}
 
     .container{padding:36px 60px;line-height:1.65}
+
     .container h2{margin-top:32px;color:var(--accent)}
     .container p{color:var(--muted)}
 
-    footer{
-      padding:24px 60px;
-      border-top:1px solid var(--border);
-      color:var(--muted);
-    }
+    footer{padding:24px 60px;border-top:1px solid var(--border);color:var(--muted)}
+
+    .backtop{position:fixed;right:22px;bottom:22px;background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:12px;border-radius:999px;color:white;text-decoration:none;}
 
     @media (max-width:980px){
-      .sidebar{
-        position:fixed;transform:translateX(-100%);
-        transition:transform .28s;z-index:40;
-      }
+      .sidebar{position:fixed;transform:translateX(-100%);transition:transform .28s;z-index:40}
       .sidebar.open{transform:translateX(0)}
+      .mobile-toggle{display:inline-flex}
       main{margin-left:0}
     }
   </style>
@@ -141,73 +108,60 @@
     </div>
 
     <nav class="primary">
-
       <a href="formato.html">
-        <svg width="18" height="18" viewBox="0 0 24 24">
-          <rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor"/>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2">
+          <rect x="3" y="4" width="18" height="16" rx="2"/>
         </svg>
         Formato
       </a>
 
       <a href="tipografia.html">
-        <svg width="18" height="18" viewBox="0 0 24 24">
-          <path d="M4 20h16"/>
-          <path d="M12 4l-4 12"/>
-          <path d="M12 4l4 12"/>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2">
+          <path d="M4 20h16"/><path d="M12 4l-4 12"/><path d="M12 4l4 12"/>
         </svg>
         Tipografía
       </a>
 
-      <!-- ICONO DE RETÍCULA CORRECTO (igual que el original del index) -->
       <a href="reticula.html">
-        <svg width="18" height="18" viewBox="0 0 24 24">
-          <rect x="3" y="3" width="7" height="7" stroke="currentColor" fill="none"/>
-          <rect x="14" y="3" width="7" height="7" stroke="currentColor" fill="none"/>
-          <rect x="3" y="14" width="7" height="7" stroke="currentColor" fill="none"/>
-          <rect x="14" y="14" width="7" height="7" stroke="currentColor" fill="none"/>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2">
+          <path d="M3 9h18"/><path d="M3 15h18"/>
         </svg>
         Retícula
       </a>
 
-      <!-- ESTA PÁGINA -->
       <a href="color.html" aria-current="page">
-        <svg width="18" height="18" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="7" stroke="currentColor" fill="none"/>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2">
+          <circle cx="12" cy="12" r="7"/>
         </svg>
         Color
       </a>
 
       <a href="cubierta.html">
-        <svg width="18" height="18" viewBox="0 0 24 24">
-          <rect x="3" y="4" width="14" height="16" stroke="currentColor" fill="none"/>
-          <path d="M17 6h3v12h-3" stroke="currentColor"/>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2">
+          <rect x="3" y="4" width="14" height="16"/><path d="M17 6h3v12h-3"/>
         </svg>
         Cubierta / Portada
       </a>
 
       <a href="imagenes.html">
-        <svg width="18" height="18" viewBox="0 0 24 24">
-          <rect x="3" y="4" width="18" height="14" stroke="currentColor" fill="none"/>
-          <path d="M8 11l2 2 3-3 4 4" stroke="currentColor"/>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2">
+          <rect x="3" y="4" width="18" height="14"/><path d="M8 11l2 2 3-3 4 4"/>
         </svg>
         Uso de imágenes
       </a>
 
       <a href="proceso.html">
-        <svg width="18" height="18" viewBox="0 0 24 24">
-          <path d="M12 2v6" stroke="currentColor"/>
-          <path d="M12 16v6" stroke="currentColor"/>
-          <path d="M4.9 7.5l4.24 4.24" stroke="currentColor"/>
-          <path d="M19.1 16.5l-4.24-4.24" stroke="currentColor"/>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2">
+          <path d="M12 2v6"/><path d="M12 16v6"/><path d="M4.9 7.5l4.24 4.24"/><path d="M19.1 16.5l-4.24-4.24"/>
         </svg>
         Proceso de maquetación
       </a>
-
     </nav>
 
     <div class="actions">
       <a class="btn mail" href="mailto:jose.davila@institutoalejandria.edu.mx">✉️ Enviar correo</a>
-      <!-- AHORA SÍ FUNCIONA → VA AL INDEX -->
+
+      <!-- ✔ AHORA REDIRIGE AL INDEX -->
       <a class="btn ghost" href="index.html">⤴ Volver al inicio</a>
     </div>
   </aside>
