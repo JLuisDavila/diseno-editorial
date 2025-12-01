@@ -4,86 +4,91 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Diseño Editorial — Retícula</title>
-  <meta name="description" content="Principios de retículas y sistemas modulares en diseño editorial." />
+  <meta name="description" content="Principios y estructura de retículas editoriales." />
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg: #08060a;
+      --bg:#08060a;
       --panel:#0f0d14;
       --card:#14111a;
       --muted:#cfc9de;
       --accent:#9161ff;
       --accent-2:#5a2bd1;
       --white:#ffffff;
-      --border: rgba(255,255,255,0.04);
-      --header-img-url: url('imgs/header-reticula.jpg');
+      --border:rgba(255,255,255,0.04);
+      --header-img-url:url('imgs/header-reticula.jpg');
     }
 
     *{box-sizing:border-box}
-    html,body{height:100%; margin:0; font-family:Inter, system-ui; background:var(--bg); color:var(--white);}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui;background:var(--bg);color:var(--white)}
 
-    .wrap{display:flex; min-height:100vh}
+    .wrap{display:flex;min-height:100vh}
 
     .sidebar{
-      width:260px; background:linear-gradient(180deg,var(--panel), #0b0810); border-right:1px solid var(--border);
-      padding:28px; position:fixed; top:0; left:0; bottom:0; overflow:auto;
+      width:260px;background:linear-gradient(180deg,var(--panel),#0b0810);
+      border-right:1px solid var(--border);padding:28px;
+      position:fixed;top:0;left:0;bottom:0;overflow:auto;
     }
 
-    .brand{display:flex; gap:12px; align-items:center; margin-bottom:18px}
-    .logo{width:52px;height:52px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;font-weight:800;}
+    .brand{display:flex;gap:12px;align-items:center;margin-bottom:18px}
+    .logo{
+      width:52px;height:52px;border-radius:10px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:grid;place-items:center;font-weight:800;
+    }
     .brand h1{font-size:16px;margin:0}
     .brand p{margin:0;font-size:12px;color:var(--muted)}
 
     nav.primary{margin-top:6px}
     nav.primary a{
-      display:flex;gap:10px;align-items:center;padding:10px 8px;border-radius:8px;
-      color:var(--muted);text-decoration:none;font-weight:600;margin-bottom:6px
+      display:flex;gap:10px;align-items:center;padding:10px 8px;
+      border-radius:8px;color:var(--muted);text-decoration:none;font-weight:600;margin-bottom:6px;
     }
-
-    /* ICONOS SIEMPRE USAN currentColor */
-    nav.primary a svg path,
-    nav.primary a svg rect,
-    nav.primary a svg circle,
-    nav.primary a svg line {
-      stroke: currentColor;
-    }
-
+    nav.primary a svg{flex-shrink:0}
     nav.primary a:hover,
     nav.primary a[aria-current="page"]{color:var(--white)}
 
-    .sidebar .actions{margin-top:40px;display:flex;flex-direction:column;gap:10px}
-    .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
+    .actions{margin-top:40px;display:flex;flex-direction:column;gap:10px}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;padding:10px 14px;
+      border-radius:10px;text-decoration:none;font-weight:700;
+    }
     .btn.mail{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:var(--white)}
     .btn.ghost{background:transparent;border:1px solid var(--border);color:var(--muted)}
 
-    .mobile-toggle{display:none;margin-left:auto}
-
     main{margin-left:260px;flex:1}
     .header{
-      height:320px; display:flex; align-items:flex-end; color:var(--white);
-      background-image: var(--header-img-url);
-      background-size:cover; background-position:center; position:relative; border-bottom:1px solid var(--border);
+      height:320px;display:flex;align-items:flex-end;color:var(--white);
+      background-image:var(--header-img-url);background-size:cover;background-position:center;
+      position:relative;border-bottom:1px solid var(--border);
     }
-    .header::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(9,6,12,0.25), rgba(10,6,15,0.75));}
-    .header .hero{position:relative; z-index:2;padding:36px 60px;display:flex;align-items:center;gap:24px}
-
-    .hero .title{font-size:28px;margin:0;color:var(--accent)}
-    .hero .subtitle{color:var(--muted);margin-top:6px}
+    .header::after{
+      content:'';position:absolute;inset:0;
+      background:linear-gradient(180deg,rgba(9,6,12,0.25),rgba(10,6,15,0.75));
+    }
+    .hero{position:relative;z-index:2;padding:36px 60px;display:flex;align-items:center;gap:24px}
+    .title{font-size:28px;margin:0;color:var(--accent)}
+    .subtitle{color:var(--muted);margin-top:6px}
 
     .container{padding:36px 60px;line-height:1.65}
     .container h2{margin-top:32px;color:var(--accent)}
     .container p{color:var(--muted)}
 
-    footer{padding:24px 60px;border-top:1px solid var(--border);color:var(--muted)}
+    footer{
+      padding:24px 60px;border-top:1px solid var(--border);color:var(--muted)
+    }
 
-    .backtop{position:fixed;right:22px;bottom:22px;background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:12px;border-radius:999px;color:white;text-decoration:none;}
+    .backtop{
+      position:fixed;right:22px;bottom:22px;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      padding:12px;border-radius:999px;color:white;text-decoration:none;
+    }
 
-    @media (max-width:980px){
-      .sidebar{position:fixed;transform:translateX(-100%);transition:transform .28s;z-index:40}
+    @media(max-width:980px){
+      .sidebar{position:fixed;transform:translateX(-100%);transition:.28s;z-index:40}
       .sidebar.open{transform:translateX(0)}
-      .mobile-toggle{display:inline-flex}
       main{margin-left:0}
     }
   </style>
@@ -104,60 +109,54 @@
     </div>
 
     <nav class="primary">
-
       <a href="formato.html">
         <svg width="18" height="18" viewBox="0 0 24 24">
-          <rect x="3" y="4" width="18" height="16" rx="2"/>
+          <rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor"/>
         </svg>
         Formato
       </a>
 
       <a href="tipografia.html">
         <svg width="18" height="18" viewBox="0 0 24 24">
-          <path d="M4 20h16"/>
-          <path d="M12 4l-4 12"/>
-          <path d="M12 4l4 12"/>
+          <path d="M4 20h16"/><path d="M12 4l-4 12"/><path d="M12 4l4 12"/>
         </svg>
         Tipografía
       </a>
 
       <a href="reticula.html" aria-current="page">
         <svg width="18" height="18" viewBox="0 0 24 24">
-          <path d="M3 9h18"/>
-          <path d="M3 15h18"/>
+          <rect x="3" y="3" width="7" height="7" stroke="currentColor"/>
+          <rect x="14" y="3" width="7" height="7" stroke="currentColor"/>
+          <rect x="3" y="14" width="7" height="7" stroke="currentColor"/>
+          <rect x="14" y="14" width="7" height="7" stroke="currentColor"/>
         </svg>
         Retícula
       </a>
 
       <a href="color.html">
         <svg width="18" height="18" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="7"/>
+          <circle cx="12" cy="12" r="7" stroke="currentColor"/>
         </svg>
         Color
       </a>
 
       <a href="cubierta.html">
         <svg width="18" height="18" viewBox="0 0 24 24">
-          <rect x="3" y="4" width="14" height="16"/>
-          <path d="M17 6h3v12h-3"/>
+          <rect x="3" y="4" width="14" height="16"/><path d="M17 6h3v12h-3"/>
         </svg>
         Cubierta / Portada
       </a>
 
       <a href="imagenes.html">
         <svg width="18" height="18" viewBox="0 0 24 24">
-          <rect x="3" y="4" width="18" height="14"/>
-          <path d="M8 11l2 2 3-3 4 4"/>
+          <rect x="3" y="4" width="18" height="14"/><path d="M8 11l2 2 3-3 4 4"/>
         </svg>
         Uso de imágenes
       </a>
 
       <a href="proceso.html">
         <svg width="18" height="18" viewBox="0 0 24 24">
-          <path d="M12 2v6"/>
-          <path d="M12 16v6"/>
-          <path d="M4.9 7.5l4.24 4.24"/>
-          <path d="M19.1 16.5l-4.24-4.24"/>
+          <path d="M12 2v6"/><path d="M12 16v6"/><path d="M4.9 7.5l4.24 4.24"/><path d="M19.1 16.5l-4.24-4.24"/>
         </svg>
         Proceso de maquetación
       </a>
@@ -165,35 +164,43 @@
 
     <div class="actions">
       <a class="btn mail" href="mailto:jose.davila@institutoalejandria.edu.mx">✉️ Enviar correo</a>
-      <a class="btn ghost" href="#top">⤴ Volver al inicio</a>
+      <a class="btn ghost" href="index.html">⤴ Volver al inicio</a>
     </div>
   </aside>
 
-  <!-- MAIN CONTENT -->
+  <!-- MAIN -->
   <main>
 
     <header class="header">
       <div class="hero">
         <div>
           <h1 class="title">Retícula</h1>
-          <p class="subtitle">Estructuras invisibles que ordenan el diseño editorial.</p>
+          <p class="subtitle">Estructura, organización y consistencia visual para la página.</p>
         </div>
       </div>
     </header>
 
     <section class="container">
 
-      <h2>¿Qué es una retícula?</h2>
-      <p>La retícula es un sistema estructural que organiza el contenido de una página mediante columnas, módulos, márgenes y líneas guía.</p>
+      <h2>La retícula como estructura base</h2>
+      <p>
+        La retícula permite ordenar los elementos de la página, establecer jerarquías y mantener consistencia en todas las secciones de un proyecto editorial.
+      </p>
 
       <h2>Columnas y módulos</h2>
-      <p>Las columnas definen el flujo del contenido; los módulos generan una cuadrícula más precisa para maquetaciones complejas.</p>
+      <p>
+        Las retículas pueden componerse de columnas, filas y módulos que facilitan la alineación precisa de textos, imágenes y elementos gráficos.
+      </p>
 
-      <h2>Jerarquía visual</h2>
-      <p>Una retícula bien aplicada permite ordenar información de forma clara, legible y coherente.</p>
+      <h2>Ritmo visual</h2>
+      <p>
+        Un buen sistema de retícula genera un ritmo que guía la mirada del lector sin distraerlo, apoyando la claridad del contenido.
+      </p>
 
-      <h2>Retículas en publicaciones</h2>
-      <p>Revistas, periódicos y libros emplean diferentes configuraciones según necesidades de texto, imágenes y estructura editorial.</p>
+      <h2>Retículas complejas</h2>
+      <p>
+        En publicaciones más elaboradas, como revistas, es común combinar varias retículas para obtener una mayor flexibilidad en la composición.
+      </p>
 
     </section>
 
