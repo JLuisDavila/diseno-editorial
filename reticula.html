@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Diseño Editorial — Retícula</title>
-  <meta name="description" content="Principios y estructura de retículas en diseño editorial." />
+  <meta name="description" content="Principios y estructura de retículas para diseño editorial." />
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
@@ -41,26 +41,22 @@
       display:flex;gap:10px;align-items:center;padding:10px 8px;border-radius:8px;
       color:var(--muted);text-decoration:none;font-weight:600;margin-bottom:6px
     }
-    nav.primary a svg{
-      flex-shrink:0;
-      stroke: currentColor; /* 🔥 hace que los íconos sean blancos cuando corresponde */
-    }
-
+    /* FORCE SVG to inherit the link color */
+    nav.primary a svg{flex-shrink:0}
+    nav.primary a svg, nav.primary a svg * { stroke: currentColor; fill: none; }
     nav.primary a:hover,
-    nav.primary a[aria-current="page"]{
-      color:var(--white);
-    }
+    nav.primary a[aria-current="page"]{color:var(--white)}
 
     .sidebar .actions{margin-top:40px;display:flex;flex-direction:column;gap:10px}
     .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
-    .btn.mail{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white}
+    .btn.mail{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:var(--white)}
     .btn.ghost{background:transparent;border:1px solid var(--border);color:var(--muted)}
 
     .mobile-toggle{display:none;margin-left:auto}
 
     main{margin-left:260px;flex:1}
     .header{
-      height:320px; display:flex; align-items:flex-end; color:white;
+      height:320px; display:flex; align-items:flex-end; color:var(--white);
       background-image: var(--header-img-url);
       background-size:cover; background-position:center; position:relative; border-bottom:1px solid var(--border);
     }
@@ -71,16 +67,13 @@
     .hero .subtitle{color:var(--muted);margin-top:6px}
 
     .container{padding:36px 60px;line-height:1.65}
+
     .container h2{margin-top:32px;color:var(--accent)}
     .container p{color:var(--muted)}
 
     footer{padding:24px 60px;border-top:1px solid var(--border);color:var(--muted)}
 
-    .backtop{
-      position:fixed;right:22px;bottom:22px;
-      background:linear-gradient(90deg,var(--accent),var(--accent-2));
-      padding:12px;border-radius:999px;color:white;text-decoration:none;
-    }
+    .backtop{position:fixed;right:22px;bottom:22px;background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:12px;border-radius:999px;color:white;text-decoration:none;}
 
     @media (max-width:980px){
       .sidebar{position:fixed;transform:translateX(-100%);transition:transform .28s;z-index:40}
@@ -96,61 +89,75 @@
 <div class="wrap">
 
   <!-- SIDEBAR -->
-  <aside class="sidebar">
+  <aside class="sidebar" id="sidebar" aria-label="Navegación lateral">
     <div class="brand">
       <div class="logo">DE</div>
       <div>
         <h1>Diseño Editorial</h1>
         <p class="muted">Formato · Tipografía · Retícula</p>
       </div>
+      <button class="mobile-toggle" id="openSidebar" aria-label="Abrir menú" title="Abrir menú" style="margin-left:auto;background:transparent;border:none;color:var(--muted);font-weight:700">☰</button>
     </div>
 
-    <nav class="primary">
-
+    <nav class="primary" id="primaryNav">
       <a href="formato.html">
-        <svg width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.4"/></svg>
         Formato
       </a>
 
       <a href="tipografia.html">
-        <svg width="18" height="18" viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M12 4l-4 12"/><path d="M12 4l4 12"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24">
+          <path d="M4 20h16" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M12 4l-4 12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M12 4l4 12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
         Tipografía
       </a>
 
       <a href="reticula.html" aria-current="page">
-        <!-- ✔️ ICONO CORRECTO DE RETÍCULA (EL MISMO QUE USABAS) -->
+        <!-- ICONO CORRECTO (mismo que el index original) -->
         <svg width="18" height="18" viewBox="0 0 24 24">
-          <rect x="3" y="3" width="18" height="18" rx="2" fill="none"/>
-          <path d="M3 9h18M3 15h18M9 3v18M15 3v18"/>
+          <path d="M3 9h18M3 15h18" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
         </svg>
         Retícula
       </a>
 
       <a href="color.html">
-        <svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="7" stroke="currentColor" stroke-width="1.4"/>
+        </svg>
         Color
       </a>
 
       <a href="cubierta.html">
-        <svg width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="4" width="14" height="16"/><path d="M17 6h3v12h-3"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24">
+          <rect x="3" y="4" width="14" height="16" rx="1.2" stroke="currentColor" stroke-width="1.4"/>
+          <path d="M17 6h3v12h-3" stroke="currentColor" stroke-width="1.4"/>
+        </svg>
         Cubierta / Portada
       </a>
 
       <a href="imagenes.html">
-        <svg width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14"/><path d="M8 11l2 2 3-3 4 4"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24">
+          <rect x="3" y="4" width="18" height="14" rx="1.2" stroke="currentColor" stroke-width="1.4"/>
+          <path d="M8 11l2 2 3-3 4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
         Uso de imágenes
       </a>
 
       <a href="proceso.html">
-        <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2v6"/><path d="M12 16v6"/><path d="M4.9 7.5l4.24 4.24"/><path d="M19.1 16.5l-4.24-4.24"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24">
+          <path d="M12 2v6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M12 16v6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M4.9 7.5l4.24 4.24" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M19.1 16.5l-4.24-4.24" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
         Proceso de maquetación
       </a>
     </nav>
 
     <div class="actions">
-      <a class="btn mail" href="mailto:jose.davila@institutoalejandria.edu.mx">✉️ Enviar correo</a>
-
-      <!-- ✔ CORREGIDO → AHORA SÍ REDIRIGE AL INDEX -->
+      <a class="btn mail" href="mailto:jose.davila@institutoalejandria.edu.mx" rel="noopener">✉️ Enviar correo</a>
       <a class="btn ghost" href="index.html">⤴ Volver al inicio</a>
     </div>
   </aside>
@@ -158,11 +165,11 @@
   <!-- MAIN -->
   <main>
 
-    <header class="header">
+    <header class="header" role="banner">
       <div class="hero">
         <div>
           <h1 class="title">Retícula</h1>
-          <p class="subtitle">Estructura, orden, ritmo y proporción en la composición editorial.</p>
+          <p class="subtitle">Estructura invisible que organiza la página.</p>
         </div>
       </div>
     </header>
@@ -170,26 +177,43 @@
     <section class="container">
 
       <h2>¿Qué es una retícula?</h2>
-      <p>La retícula es la estructura invisible que organiza el contenido en una página, asegurando coherencia y ritmo visual.</p>
+      <p>La retícula es la estructura base del diseño editorial. Ordena, jerarquiza y da coherencia visual al conjunto de páginas.</p>
 
-      <h2>Tipos de retículas</h2>
-      <p>Columnas, modulares, jerárquicas y de manuscrito son algunas de las más utilizadas en diseño editorial.</p>
+      <h2>Columnas y márgenes</h2>
+      <p>Una retícula puede tener desde dos hasta doce columnas, dependiendo del tipo de publicación. Los márgenes funcionan como “zonas de respiración”.</p>
 
-      <h2>Importancia del ritmo visual</h2>
-      <p>El espaciado constante, márgenes y sangrías permiten que la lectura sea fluida y ordenada.</p>
+      <h2>Modulación</h2>
+      <p>Las retículas modulares permiten dividir la página en unidades proporcionales que soportan una mayor complejidad visual.</p>
 
-      <h2>Retícula y tipografía</h2>
-      <p>El interlineado, la cuadrícula base y la alineación son fundamentales para lograr armonía visual.</p>
+      <h2>Retícula editorial clásica</h2>
+      <p>Basada en la proporción áurea, construye relaciones armoniosas entre caja tipográfica, márgenes y columnas.</p>
+
+      <h2>Aplicación</h2>
+      <p>Una buena retícula permite variación con coherencia. No limita: proporciona una base flexible que mantiene el orden incluso en diseños dinámicos.</p>
 
     </section>
 
     <footer>
-      © 2025 · Diseño Editorial — Curso
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div class="small muted">© <span id="year"></span> Diseño Editorial · Hecho por José Luis Dávila</div>
+        <div class="small muted">Plantillas listas para GitHub Pages</div>
+      </div>
     </footer>
 
   </main>
 
 </div>
 
+<a class="backtop" href="index.html">↑</a>
+
+<script>
+  // Año dinámico
+  document.getElementById && document.getElementById('year') && (document.getElementById('year').textContent = new Date().getFullYear());
+
+  // Mobile toggle
+  const sidebar = document.getElementById('sidebar');
+  const openBtn = document.getElementById('openSidebar');
+  openBtn && openBtn.addEventListener('click', ()=> sidebar.classList.toggle('open'));
+</script>
 </body>
 </html>
