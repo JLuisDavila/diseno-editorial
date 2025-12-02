@@ -150,25 +150,87 @@
     </header>
 
     <section class="container">
-      <h2>Introducción a la tipografía</h2>
-      <p class="muted">
-        La tipografía es la base comunicativa del diseño editorial. La elección de familias, pesos, espaciados y jerarquías afecta directamente la experiencia del lector.
-      </p>
+     <h2>¿Qué es la tipografía?</h2>
+<p>
+  La <strong>tipografía</strong> es el arte de organizar letras y palabras para hacer que un texto sea fácil de leer, agradable a la vista y adecuado para el mensaje que quiere transmitir.  
+  En nuestro día a día, vemos cientos de tipografías sin darnos cuenta: en libros, letreros, redes sociales, cuadernos y hasta en las aplicaciones del celular. Cada una tiene un estilo y una función.
+</p>
 
-      <div class="grid">
-        <div class="card">
-          <h3>Legibilidad</h3>
-          <p>Cómo facilitar la lectura mediante proporciones, contraste y estilo.</p>
-        </div>
-        <div class="card">
-          <h3>Jerarquía tipográfica</h3>
-          <p>Organización visual basada en títulos, subtítulos, cuerpos y estilos.</p>
-        </div>
-        <div class="card">
-          <h3>Familias tipográficas</h3>
-          <p>Diferencias entre serif, sans-serif, display y monoespaciadas.</p>
-        </div>
-      </div>
+<!-- ==== IMAGEN 1 ==== -->
+<div style="margin: 28px 0; text-align:center;">
+  <img src="151.jpg" class="img-zoomable" alt="Ejemplo de diferentes familias tipográficas" style="max-width:100%; border-radius:12px; cursor:zoom-in;">
+  <p style="color:var(--muted); font-size:14px;">Varias familias tipográficas y sus estilos.</p>
+</div>
+
+
+<h2>La importancia de elegir una buena tipografía</h2>
+<p>
+  La elección tipográfica influye directamente en la <strong>claridad</strong> y la <strong>personalidad</strong> de un diseño editorial.  
+  Por ejemplo, un libro de texto necesita una letra muy legible para que los estudiantes no se cansen, mientras que un póster de concierto puede usar una tipografía llamativa que comunique energía o estilo.
+</p>
+
+<!-- ==== IMAGEN 2 ==== -->
+<div style="margin: 28px 0; text-align:center;">
+  <img src="152.jpg" class="img-zoomable" alt="Tipografías para diferentes propósitos" style="max-width:100%; border-radius:12px; cursor:zoom-in;">
+  <p style="color:var(--muted); font-size:14px;">Cada tipografía tiene un propósito diferente.</p>
+</div>
+
+
+<h2>Clasificación básica de las tipografías</h2>
+<p>
+  Para comprender mejor este tema, basta con conocer tres categorías esenciales:
+</p>
+
+<p>
+  <strong>1. Serif:</strong> tienen “patitas” o remates. Suelen verse formales y son perfectas para textos largos, como novelas o ensayos.<br>
+  <strong>2. Sans Serif:</strong> no tienen remates. Son limpias, modernas y muy comunes en libros escolares y sitios web.<br>
+  <strong>3. Manuscritas o display:</strong> parecen hechas a mano o muy decorativas. Se usan para títulos y elementos que buscan llamar la atención.
+</p>
+
+<!-- ==== IMAGEN 3 ==== -->
+<div style="margin: 28px 0; text-align:center;">
+  <img src="153.jpg" class="img-zoomable" alt="Comparación entre serif, sans serif y manuscritas" style="max-width:100%; border-radius:12px; cursor:zoom-in;">
+  <p style="color:var(--muted); font-size:14px;">Serif, Sans Serif y Manuscritas: tres estilos fundamentales.</p>
+</div>
+
+
+<h2>Jerarquía tipográfica</h2>
+<p>
+  Cuando diseñamos una página, no solo importa qué letra usamos, sino también <strong>cómo organizamos el texto</strong>.  
+  La jerarquía tipográfica ayuda al lector a identificar qué es un título, qué es un subtítulo y qué es texto principal.  
+  Por ejemplo:
+</p>
+
+<p>
+  — Un título suele ser más grande y en negritas.<br>
+  — Un subtítulo es un poco más pequeño.<br>
+  — El texto normal es el más sencillo y uniforme.
+</p>
+
+
+<!-- ==== VIDEO DE YOUTUBE ==== -->
+<div style="margin: 32px 0; text-align:center;">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/7Pd4zL0oe2k?si=QLoBkkGkJ9a1ayeF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <p style="color:var(--muted); font-size:14px;">Video recomendado: Introducción a la tipografía.</p>
+</div>
+
+
+<h2>Documento de referencia</h2>
+<p>
+  Aquí puedes revisar un PDF con ejemplos reales de tipografías usadas en publicaciones educativas, así como comparaciones de legibilidad y diseño.
+</p>
+
+<!-- ==== PDF EMBEBIDO DESDE GITHUB ==== -->
+<div style="margin: 32px 0;">
+  <iframe 
+    src="ManualTipo.pdf" 
+    width="100%" 
+    height="520" 
+    style="border:1px solid var(--border); border-radius:12px;">
+  </iframe>
+  <p style="color:var(--muted); font-size:14px;">PDF: Ejemplos de tipografías aplicadas al diseño editorial.</p>
+</div>
+
     </section>
 
     <footer>
@@ -176,5 +238,24 @@
     </footer>
   </main>
 </div>
+<script>
+document.querySelectorAll('img[cursor="zoom-in"], img[style*="cursor:zoom-in"]').forEach(img => {
+  img.addEventListener('click', () => {
+    const zoom = document.createElement('div');
+    zoom.style.position = "fixed";
+    zoom.style.inset = "0";
+    zoom.style.background = "rgba(0,0,0,0.85)";
+    zoom.style.display = "flex";
+    zoom.style.alignItems = "center";
+    zoom.style.justifyContent = "center";
+    zoom.style.zIndex = "9999";
+    zoom.innerHTML = `<img src="${img.src}" style="max-width:90%; max-height:90%; border-radius:12px;">`;
+    zoom.onclick = () => zoom.remove();
+    document.body.appendChild(zoom);
+  });
+});
+</script>
+
+  
 </body>
 </html>
