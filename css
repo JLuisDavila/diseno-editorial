@@ -1,0 +1,4 @@
+.content-limit {
+  max-width: 800px;   /* Ajusta el ancho que quieras */
+  margin: 0 auto;     /* Centra el contenido */
+}
