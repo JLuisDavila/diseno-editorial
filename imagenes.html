@@ -149,16 +149,86 @@
       </header>
 
       <section class="container">
-        <h2>Buenas prácticas para imágenes</h2>
-        <p class="muted">Aquí puedes documentar especificaciones de resolución, formatos, licences y ejemplos.</p>
-      </section>
+       <h2>Importancia del uso de imágenes en diseño editorial</h2>
+<p class="muted">
+  Las <strong>imágenes</strong> son un elemento fundamental en el diseño editorial. No solo hacen más atractiva una publicación, 
+  sino que también ayudan a explicar ideas, organizar información y despertar interés. En secundaria lo vemos en 
+  todos los libros: diagramas, fotografías, dibujos y mapas que acompañan los textos para hacerlos más claros.
+</p>
 
-      <footer>
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-          <div class="small muted">© <span id="year"></span> Diseño Editorial · Hecho por José Luis Dávila</div>
-          <div class="small muted">Plantillas listas para GitHub Pages</div>
-        </div>
-      </footer>
+<!-- IMAGEN 1 -->
+<div style="margin: 28px 0; text-align:center;">
+  <img src="191.png" class="img-zoomable" alt="Imágenes en libros de texto" style="max-width:100%; border-radius:12px; cursor:pointer;" onclick="this.classList.toggle('zoomed')">
+  <p style="color:var(--muted); font-size:14px;">Ejemplo de imágenes complementando contenido textual.</p>
+</div>
+
+<h2>¿Por qué son tan importantes las imágenes?</h2>
+<p>
+  En diseño editorial, las imágenes permiten captar la atención del lector y transmitir información de forma inmediata. 
+  Una fotografía puede mostrar lo que tomaría varios párrafos explicar, mientras que una ilustración puede simplificar 
+  un concepto complejo. Además, ayudan a que el lector no se fatigue con largas secciones de texto seguido.
+</p>
+
+<!-- IMAGEN 2 -->
+<div style="margin: 28px 0; text-align:center;">
+  <img src="192.jpg" class="img-zoomable" alt="Fotografías y gráficos" style="max-width:100%; border-radius:12px; cursor:pointer;" onclick="this.classList.toggle('zoomed')">
+  <p style="color:var(--muted); font-size:14px;">Las imágenes también guían el ritmo visual de la lectura.</p>
+</div>
+
+<h2>Tipos de imágenes más usadas</h2>
+<p>
+  En publicaciones académicas y escolares se suelen usar distintos tipos de imágenes: 
+  <strong>fotografías</strong> para mostrar hechos reales, <strong>gráficos</strong> para datos, <strong>ilustraciones</strong> 
+  para explicar procesos, <strong>mapas</strong> para ubicar lugares y <strong>esquemas</strong> para organizar información. 
+  Cada tipo tiene una función y debe elegirse de acuerdo con lo que se desea comunicar.
+</p>
+
+<!-- IMAGEN 3 -->
+<div style="margin: 28px 0; text-align:center;">
+  <img src="193.jpg" class="img-zoomable" alt="Ilustraciones y diagramas" style="max-width:100%; border-radius:12px; cursor:pointer;" onclick="this.classList.toggle('zoomed')">
+  <p style="color:var(--muted); font-size:14px;">Cada tipo de imagen cumple una función específica en la página.</p>
+</div>
+
+<h2>Buenas prácticas al usar imágenes</h2>
+<p>
+  Para que una imagen funcione bien dentro de una página debe tener buena resolución, estar bien recortada y colocarse 
+  con suficiente espacio alrededor. También es importante que tenga relación directa con el texto y no sea relleno. 
+  El diseño editorial busca que texto e imagen se complementen, no que compitan.
+</p>
+
+<h2>Video recomendado</h2>
+<div style="margin: 32px 0; text-align:center;">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/870heXRaWak?si=sc6_wPBKLpsXx_4K" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <p style="color:var(--muted); font-size:14px;">Video: Cómo integrar imágenes de manera correcta en una publicación.</p>
+</div>
+
+<h2>Documento de consulta</h2>
+<p>
+  Revisa el siguiente documento en PDF para conocer ejemplos reales del uso adecuado de imágenes en libros, revistas 
+  y materiales educativos.
+</p>
+
+<!-- PDF EMBEBIDO -->
+<div style="margin: 32px 0;">
+  <iframe 
+    src="imagent.pdf" 
+    width="100%" 
+    height="500" 
+    style="border:1px solid var(--border); border-radius:12px;">
+  </iframe>
+  <p style="color:var(--muted); font-size:14px;">PDF: Ejemplos y recomendaciones sobre uso de imágenes.</p>
+</div>
+
+<!-- ZOOM CSS -->
+<style>
+  .zoomed {
+    transform: scale(1.8);
+    transition: 0.3s ease;
+    z-index: 9999;
+    position: relative;
+  }
+</style>
+
     </main>
 
   </div>
