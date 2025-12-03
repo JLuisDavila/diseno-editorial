@@ -276,8 +276,9 @@
   const openBtn = document.getElementById('openSidebar');
   openBtn && openBtn.addEventListener('click', ()=> sidebar.classList.toggle('open'));
 </script>
+
 <script>
-  document.querySelectorAll('.zoomable').forEach(img => {
+  document.querySelectorAll('.img-zoomable').forEach(img => {
     img.addEventListener('click', () => {
       const viewer = document.createElement('div');
       viewer.style.position = 'fixed';
