@@ -186,19 +186,78 @@
 
     <section class="container">
 
-      <h2>El rol del color en el diseño editorial</h2>
-      <p>El color en el diseño editorial no es solo un elemento estético: estructura la lectura, jerarquiza, guía y define la personalidad de una publicación.</p>
+  <h2>¿Por qué es importante el color en el diseño editorial?</h2>
+  <p>
+    El <strong>color</strong> es uno de los elementos más influyentes en el diseño editorial. En cualquier libro, revista o folleto, 
+    los colores ayudan a transmitir emociones, jerarquías y estilos. Por ejemplo, los tonos cálidos como el rojo o el naranja 
+    comunican energía, mientras que los azules y verdes suelen transmitir tranquilidad o profesionalismo. En secundaria lo vemos 
+    todo el tiempo: desde las portadas de los libros hasta los recuadros de información en los cuadernos.
+  </p>
 
-      <h2>Armonías cromáticas</h2>
-      <p>Las armonías —análogas, complementarias, triádicas— ayudan a establecer coherencia visual y refuerzan la identidad gráfica.</p>
+  <!-- ==== IMAGEN 1 ==== -->
+  <div style="margin: 28px 0; text-align:center;">
+    <img src="171.jpg" class="img-zoomable" alt="Rueda cromática básica" style="max-width:100%; border-radius:12px; cursor:pointer;" class="zoomable">
+    <p style="color:var(--muted); font-size:14px;">La rueda de color es una herramienta fundamental para combinar colores.</p>
+  </div>
 
-      <h2>Contraste y legibilidad</h2>
-      <p>El contraste entre texto y fondo es crucial. Un diseño editorial profesional prioriza siempre la legibilidad.</p>
+  <h2>Combinaciones armónicas</h2>
+  <p>
+    Para crear diseños agradables, los diseñadores utilizan combinaciones llamadas 
+    <strong>armonías de color</strong>. Estas pueden ser complementarias (colores opuestos), 
+    análogas (colores vecinos) o monocromáticas (variaciones de un mismo tono).  
+    Por ejemplo, una portada podría usar azul y naranja para generar contraste, o 
+    diferentes tonos de verde para dar una sensación uniforme.
+  </p>
 
-      <h2>Color en impresión</h2>
-      <p>Es esencial considerar la conversión entre RGB y CMYK, los perfiles ICC, y las limitaciones de tinta para garantizar un resultado fiel.</p>
+  <!-- ==== IMAGEN 2 ==== -->
+  <div style="margin: 28px 0; text-align:center;">
+    <img src="172.jpg" class="img-zoomable" alt="Ejemplos de armonías de color" style="max-width:100%; border-radius:12px; cursor:pointer;" class="zoomable">
+    <p style="color:var(--muted); font-size:14px;">Ejemplo de armonías complementarias, análogas y monocromáticas.</p>
+  </div>
 
-    </section>
+  <h2>Color y significado</h2>
+  <p>
+    El color también tiene significados culturales o psicológicos. El rojo suele asociarse con urgencia o emoción, 
+    el amarillo con energía y atención, y el negro con elegancia o seriedad. En el diseño editorial, elegir los colores 
+    adecuados ayuda a que el lector interprete mejor la intención del mensaje.
+  </p>
+
+  <!-- ==== IMAGEN 3 ==== -->
+  <div style="margin: 28px 0; text-align:center;">
+    <img src="173.jpg" class="img-zoomable" alt="Significado de distintos colores" style="max-width:100%; border-radius:12px; cursor:pointer;" class="zoomable">
+    <p style="color:var(--muted); font-size:14px;">Los colores pueden influir en cómo interpretamos un contenido.</p>
+  </div>
+
+  <h2>Video recomendado</h2>
+  <p>
+    Este video explica cómo funciona la teoría del color y cómo se usa en el diseño visual.
+  </p>
+
+  <!-- ==== VIDEO YOUTUBE ==== -->
+  <div style="margin: 32px 0; text-align:center;">
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/c0ZPYjsMXpM?si=D7s3i8okpaOO9Q9n" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <p style="color:var(--muted); font-size:14px;">Video: Introducción a la teoría del color.</p>
+  </div>
+
+  <h2>Documento de consulta</h2>
+  <p>
+    Aquí puedes revisar un PDF que reúne ejemplos profesionales de uso del color en portadas, revistas 
+    e infografías. Es una excelente referencia para tus propios proyectos.
+  </p>
+
+  <!-- ==== PDF EMBEBIDO ==== -->
+  <div style="margin: 32px 0;">
+    <iframe 
+      src="colort.pdf"
+      width="100%" 
+      height="500" 
+      style="border:1px solid var(--border); border-radius:12px;">
+    </iframe>
+    <p style="color:var(--muted); font-size:14px;">PDF: Ejemplos reales de uso del color en diseño editorial.</p>
+  </div>
+
+</section>
+
 
     <footer>
       © 2025 · Diseño Editorial — Curso
@@ -207,6 +266,35 @@
   </main>
 
 </div>
+<script>
+  document.querySelectorAll('.zoomable').forEach(img => {
+    img.addEventListener('click', () => {
+      const overlay = document.createElement('div');
+      overlay.style.position = 'fixed';
+      overlay.style.top = 0;
+      overlay.style.left = 0;
+      overlay.style.width = '100%';
+      overlay.style.height = '100%';
+      overlay.style.background = 'rgba(0,0,0,0.85)';
+      overlay.style.display = 'flex';
+      overlay.style.alignItems = 'center';
+      overlay.style.justifyContent = 'center';
+      overlay.style.cursor = 'zoom-out';
+      overlay.style.zIndex = 9999;
+
+      const zoomImg = document.createElement('img');
+      zoomImg.src = img.src;
+      zoomImg.style.maxWidth = '90%';
+      zoomImg.style.maxHeight = '90%';
+      zoomImg.style.borderRadius = '12px';
+
+      overlay.appendChild(zoomImg);
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener('click', () => overlay.remove());
+    });
+  });
+</script>
 
 </body>
 </html>
