@@ -155,8 +155,81 @@
       </header>
 
       <section class="container">
-        <h2>Diseño de cubierta</h2>
-        <p class="muted">Aquí va el contenido sobre composiciones de portada, margenes seguros, lomo, solapas y ejemplos.</p>
+        <h2>¿Qué es la cubierta o portada?</h2>
+<p class="muted">
+  La <strong>cubierta</strong> —también llamada portada— es la parte visible de un libro cuando lo tomamos por primera vez. 
+  No solo cumple una función estética, sino que también comunica el tema, el tono y el propósito de la publicación. 
+  En secundaria lo vemos en todas partes: desde libros de texto hasta novelas juveniles. 
+  Una buena portada logra que un lector se interese incluso antes de abrir el contenido.
+</p>
+
+<!-- ==== IMAGEN 1 ==== -->
+<div style="margin: 28px 0; text-align:center;">
+  <img src="181.jpg" class="img-zoomable" alt="Ejemplo de una portada editorial" style="max-width:100%; border-radius:12px; cursor:pointer;" class="zoom-img">
+  <p style="color:var(--muted); font-size:14px;">Ejemplo de portada moderna con uso de fotografía y tipografía clara.</p>
+</div>
+
+<h2>¿Por qué es importante la cubierta?</h2>
+<p>
+  La portada funciona como una <strong>primera impresión visual</strong>. Su diseño influye en cómo percibimos el contenido y 
+  si nos interesa leerlo. Por ejemplo, un libro de terror puede usar tonos oscuros, mientras que un libro infantil usa colores brillantes
+  e ilustraciones que transmiten alegría.  
+  La cubierta debe comunicar el tema sin confundir al lector y, al mismo tiempo, debe destacar entre muchos otros libros.
+</p>
+
+<!-- ==== IMAGEN 2 ==== -->
+<div style="margin: 28px 0; text-align:center;">
+  <img src="182.jpg" class="img-zoomable" class="img-zoomable" alt="Comparación de estilos de cubierta" style="max-width:100%; border-radius:12px; cursor:pointer;" class="zoom-img">
+  <p style="color:var(--muted); font-size:14px;">Comparación de estilos: minimalista vs. ilustrado.</p>
+</div>
+
+<h2>Elementos que componen una portada</h2>
+<p>
+  Aunque cada editorial puede tener su estilo, la mayoría de las cubiertas incluyen los siguientes elementos:
+  <br><br>
+  <strong>Título:</strong> Es lo primero que debe leerse. Su tamaño y tipografía deben llamar la atención. <br>
+  <strong>Nombre del autor:</strong> A veces más grande si es un autor famoso. <br>
+  <strong>Imagen o ilustración principal:</strong> Es la base del impacto visual. <br>
+  <strong>Composición:</strong> La forma en que texto e imagen se organizan para crear equilibrio. <br>
+  <strong>Contraportada y lomo:</strong> Aunque no se ven de inmediato, completan la identidad del libro y contienen información adicional. 
+</p>
+
+<!-- ==== IMAGEN 3 ==== -->
+<div style="margin: 28px 0; text-align:center;">
+  <img src="183.jpeg" class="img-zoomable" alt="Elementos de una cubierta" style="max-width:100%; border-radius:12px; cursor:pointer;" class="zoom-img">
+  <p style="color:var(--muted); font-size:14px;">Distribución de elementos dentro de una cubierta estándar.</p>
+</div>
+
+<h2>Ejemplos cotidianos</h2>
+<p>
+  Si observas tus libros de texto, notarás que sus portadas usan imágenes relacionadas con la materia: un microscopio para Ciencias,
+  una pirámide para Historia o una ilustración de un autor para Español.  
+  Los colores también ayudan: tonos fríos para matemáticas, cálidos para humanidades, o combinaciones vibrantes para libros juveniles.
+</p>
+
+<!-- ==== VIDEO DE YOUTUBE ==== -->
+<div style="margin: 32px 0; text-align:center;">
+ <iframe width="560" height="315" src="https://www.youtube.com/embed/I4AsG58QJuY?si=kfLi0NyTx5U89qmd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <p style="color:var(--muted); font-size:14px;">Video: ¿Qué hace que una portada sea efectiva?</p>
+</div>
+
+<h2>Documento de consulta</h2>
+<p>
+  El siguiente archivo incluye ejemplos comentados de portadas reales usadas en libros de distintos géneros. 
+  Puede servirte como guía para crear tu propia cubierta en proyectos escolares.
+</p>
+
+<!-- ==== PDF DESDE GITHUB ==== -->
+<div style="margin: 32px 0;">
+  <iframe 
+    src="portadat.pdf" 
+    width="100%" 
+    height="500" 
+    style="border:1px solid var(--border); border-radius:12px;">
+  </iframe>
+  <p style="color:var(--muted); font-size:14px;">PDF: Análisis de cubiertas de libros.</p>
+</div>
+
       </section>
 
       <footer>
@@ -180,5 +253,34 @@
     const openBtn = document.getElementById('openSidebar');
     openBtn && openBtn.addEventListener('click', ()=> sidebar.classList.toggle('open'));
   </script>
+
+  <script>
+  document.querySelectorAll(".zoom-img").forEach(img => {
+    img.addEventListener("click", () => {
+      const overlay = document.createElement("div");
+      overlay.style.position = "fixed";
+      overlay.style.inset = "0";
+      overlay.style.background = "rgba(0,0,0,0.8)";
+      overlay.style.display = "flex";
+      overlay.style.justifyContent = "center";
+      overlay.style.alignItems = "center";
+      overlay.style.zIndex = "9999";
+      
+      const big = document.createElement("img");
+      big.src = img.src;
+      big.style.maxWidth = "90%";
+      big.style.maxHeight = "90%";
+      big.style.borderRadius = "12px";
+      big.style.boxShadow = "0 0 20px rgba(0,0,0,0.5)";
+      
+      overlay.appendChild(big);
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener("click", () => overlay.remove());
+    });
+  });
+</script>
+
+  
 </body>
 </html>
