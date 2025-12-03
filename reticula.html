@@ -276,5 +276,24 @@
   const openBtn = document.getElementById('openSidebar');
   openBtn && openBtn.addEventListener('click', ()=> sidebar.classList.toggle('open'));
 </script>
+<script>
+  document.querySelectorAll('.zoomable').forEach(img => {
+    img.addEventListener('click', () => {
+      const viewer = document.createElement('div');
+      viewer.style.position = 'fixed';
+      viewer.style.inset = '0';
+      viewer.style.background = 'rgba(0,0,0,0.85)';
+      viewer.style.display = 'flex';
+      viewer.style.alignItems = 'center';
+      viewer.style.justifyContent = 'center';
+      viewer.style.zIndex = '9999';
+      viewer.innerHTML = `<img src="${img.src}" style="max-width:90%; max-height:90%; border-radius:12px;">`;
+      viewer.addEventListener('click', () => viewer.remove());
+      document.body.appendChild(viewer);
+    });
+  });
+</script>
+
+  
 </body>
 </html>
