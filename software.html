@@ -1,147 +1,275 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Software recomendado</title>
-<link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Software — Diseño Editorial</title>
+  <meta name="description" content="Software recomendado para diseño editorial: Scribus." />
 
-<style>
-/* --- Ajustes típicos de contenido interno --- */
-.section {
-  padding: 40px;
-  max-width: 900px;
-  margin-left: 260px; /* espacio para barra lateral */
-}
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-.section h1 {
-  font-size: 2.2rem;
-  margin-bottom: 20px;
-}
+  <style>
+    :root{
+      --bg: #08060a;
+      --panel:#0f0d14;
+      --card:#14111a;
+      --muted:#cfc9de;
+      --accent:#9161ff;
+      --accent-2:#5a2bd1;
+      --white:#ffffff;
+      --border: rgba(255,255,255,0.04);
+      --header-img-url: url('header-software.jpeg'); /* Cambia esta imagen si lo deseas */
+    }
 
-.section p {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  margin-bottom: 18px;
-}
-</style>
+    *{box-sizing:border-box}
+    html,body{height:100%; margin:0; font-family:Inter, system-ui; background:var(--bg); color:var(--white);}
 
+    .wrap{display:flex; min-height:100vh}
+
+    .sidebar{
+      width:260px; background:linear-gradient(180deg,var(--panel), #0b0810); border-right:1px solid var(--border);
+      padding:28px; position:fixed; top:0; left:0; bottom:0; overflow:auto;
+    }
+
+    .brand{display:flex; gap:12px; align-items:center; margin-bottom:18px}
+    .logo{width:52px;height:52px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;font-weight:800;}
+    .brand h1{font-size:16px;margin:0}
+    .brand p{margin:0;font-size:12px;color:var(--muted)}
+
+    nav.primary{margin-top:6px}
+    nav.primary a{
+      display:flex;gap:10px;align-items:center;padding:10px 8px;border-radius:8px;
+      color:var(--muted);text-decoration:none;font-weight:600;margin-bottom:6px
+    }
+    nav.primary a svg{flex-shrink:0}
+    nav.primary a:hover{color:var(--white)}
+
+    .sidebar .actions{margin-top:auto;display:flex;flex-direction:column;gap:10px}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
+    .btn.mail{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:var(--white)}
+    .btn.ghost{background:transparent;border:1px solid var(--border);color:var(--muted)}
+
+    .mobile-toggle{display:none;margin-left:auto}
+
+    main{margin-left:260px;flex:1}
+
+    .header{
+      height:320px; display:flex; align-items:flex-end; color:var(--white);
+      background-image: var(--header-img-url);
+      background-size:cover; background-position:center; position:relative; border-bottom:1px solid var(--border);
+    }
+    .header::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(9,6,12,0.25), rgba(10,6,15,0.75));}
+    .header .hero{position:relative; z-index:2;padding:36px 60px;display:flex;align-items:center;gap:24px}
+
+    .hero .title{font-size:28px;margin:0;color:var(--accent)}
+    .hero .subtitle{color:var(--muted);margin-top:6px}
+
+    .container{
+      padding:36px 60px;
+      text-align:justify;
+      max-width:820px;
+      margin:0 auto;
+    }
+
+    /* === ZOOM DE IMÁGENES (MODAL) === */
+    .img-zoomable {
+      cursor: zoom-in;
+      transition: transform 0.25s ease;
+    }
+
+    #img-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      padding: 20px;
+    }
+
+    #img-modal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+    }
+
+    #img-modal.active {
+      display: flex;
+    }
+
+    #img-modal-close {
+      position: fixed;
+      top: 20px;
+      right: 30px;
+      font-size: 32px;
+      color: white;
+      cursor: pointer;
+    }
+
+  </style>
 </head>
+
 <body>
+<div class="wrap">
 
-<!-- === BARRA LATERAL (idéntica a las otras páginas) === -->
-<aside class="sidebar">
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <div class="brand">
+    <div class="logo">DE</div>
+    <div>
+      <h1>Diseño Editorial</h1>
+      <p class="muted"></p>
+    </div>
+    <button class="mobile-toggle" style="background:transparent;border:none;color:var(--muted);font-weight:700">☰</button>
+  </div>
 
-  <h2 class="nav-title">Contenido</h2>
+  <nav class="primary">
 
-  <nav class="nav">
+    <a href="formato.html" class="navlink">
+      <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.4"/></svg>
+      Formato
+    </a>
 
-    <a href="index.html" class="navlink">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 11.5L12 4l9 7.5V20a1 1 0 0 1-1 1h-6v-6H10v6H4a1 1 0 0 1-1-1v-8.5z" stroke="currentColor" stroke-width="1.4"/></svg>
-      Inicio
+    <a href="tipografia.html" class="navlink">
+      <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M4 20h16" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M12 4l-4 12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M12 4l4 12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      Tipografía
     </a>
 
     <a href="reticula.html" class="navlink">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M3 9h18M3 15h18" stroke="currentColor" stroke-width="1.4"/></svg>
+      <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M3 9h18M3 15h18" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
       Retícula
     </a>
 
     <a href="color.html" class="navlink">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M12 3v9l6 6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" stroke="currentColor" stroke-width="1.4"/></svg>
       Color
     </a>
 
     <a href="cubierta.html" class="navlink">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 5h16v14H4z" stroke="currentColor" stroke-width="1.4"/><path d="M8 5v14" stroke="currentColor" stroke-width="1.4"/></svg>
+      <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><rect x="3" y="4" width="14" height="16" rx="1.2" stroke="currentColor" stroke-width="1.4"/><path d="M17 6h3v12h-3" stroke="currentColor" stroke-width="1.4"/></svg>
       Cubierta / Portada
     </a>
 
     <a href="imagenes.html" class="navlink">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M8 12l3 3 4-5 4 6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="1.2" stroke="currentColor" stroke-width="1.4"/><path d="M8 11l2 2 3-3 4 4" stroke="currentColor" stroke-width="1.4"/></svg>
       Uso de imágenes
     </a>
 
-    <a href="maquetacion.html" class="navlink">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 4h16v6H4zM4 14h16v6H4z" stroke="currentColor" stroke-width="1.4"/><path d="M12 4v16" stroke="currentColor" stroke-width="1.4"/></svg>
+    <a href="proceso.html" class="navlink">
+      <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M12 2v6" stroke="currentColor" stroke-width="1.4"/><path d="M12 16v6" stroke="currentColor" stroke-width="1.4"/><path d="M4.9 7.5l4.24 4.24" stroke="currentColor" stroke-width="1.4"/><path d="M19.1 16.5l-4.24-4.24" stroke="currentColor" stroke-width="1.4"/></svg>
       Proceso de maquetación
     </a>
 
-    <!-- === TU NUEVA SECCIÓN (BOTÓN IGUAL A LOS DEMÁS) === -->
-    <a href="software.html" class="navlink active">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <rect x="3" y="4" width="18" height="14" rx="2"
-              stroke="currentColor" stroke-width="1.4"/>
-        <path d="M7 9h4M7 13h7"
-              stroke="currentColor" stroke-width="1.4"
-              stroke-linecap="round"/>
+    <!-- === TU NUEVO BOTÓN CON EL MISMO ESTILO === -->
+    <a href="software.html" class="navlink" aria-current="page">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+        <rect x="3" y="4" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M7 9h4M7 13h7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
       </svg>
       Software recomendado
     </a>
 
   </nav>
+
+  <div class="actions">
+    <a class="btn mail" href="mailto:jose.davila@institutoalejandria.edu.mx">✉️ Enviar correo</a>
+    <a class="btn ghost" href="index.html">⤴ Volver al inicio</a>
+  </div>
 </aside>
 
+<!-- MAIN -->
+<main>
 
-<!-- === CONTENIDO PRINCIPAL === -->
-<section class="contenido-seccion">
+<header class="header">
+  <div class="hero">
+    <h2 class="title">Software recomendado</h2>
+    <p class="subtitle">Scribus: herramienta libre para maquetación editorial.</p>
+  </div>
+</header>
 
-  <h1>Software recomendado: Scribus</h1>
+<section class="container">
 
-  <p>
-    Scribus es un programa de maquetación editorial profesional completamente gratuito y de código abierto. 
-    Su principal ventaja es que ofrece herramientas avanzadas para el diseño de revistas, libros, folletos, 
-    carteles y cualquier producto editorial, sin necesidad de pagar licencias costosas. Su flujo de trabajo 
-    se basa en cuadros de texto, estilos, guías, retículas y perfiles de color, lo que lo convierte en una 
-    alternativa sólida a InDesign para estudiantes, docentes y profesionales con presupuestos ajustados.
+  <h2>¿Qué es Scribus?</h2>
+  <p class="muted">
+    <strong>Scribus</strong> es un programa de maquetación editorial profesional y completamente gratuito. 
+    Está pensado para diseñar revistas, libros, folletos, periódicos y cualquier documento destinado a impresión 
+    o exportación en PDF. Una de sus mayores ventajas es que ofrece herramientas equivalentes a software comercial 
+    como InDesign, pero sin costo y con plena compatibilidad con estándares de impresión.
   </p>
 
-  <!-- IMAGEN EJEMPLO 1 -->
-  <figure class="ejemplo-img">
-      <img src="imagenes/scribus-interfaz.jpg" alt="Interfaz de Scribus">
-      <figcaption>Interfaz principal de Scribus y paneles de trabajo</figcaption>
-  </figure>
+  <!-- IMAGEN 1 -->
+  <div style="margin:28px 0;text-align:center;">
+    <img src="scribus1.jpg" class="img-zoomable" alt="Interfaz principal de Scribus" style="max-width:100%;border-radius:12px;">
+    <p style="color:var(--muted);font-size:14px;">Interfaz principal de Scribus, con paneles de estilos y páginas.</p>
+  </div>
 
-  <p>
-    Otra ventaja fundamental es su enfoque en un entorno editorial real: permite exportar en PDF/X-1a, 
-    manejar sangrados y marcas de corte, trabajar con tipografías profesionales, administrar hojas de 
-    estilos y preparar archivos listos para imprenta. Además, al ser de código abierto, se mantiene 
-    actualizado gracias a una comunidad activa que mejora constantemente la estabilidad y el rendimiento 
-    del programa.
+  <h2>Ventajas principales</h2>
+  <p class="muted">
+    Scribus destaca por su enfoque en el control tipográfico, el manejo preciso de retículas y la preparación 
+    de archivos PDF listos para imprenta. Permite trabajar con perfiles CMYK, gestionar sangrados, 
+    definir estilos avanzados y organizar documentos complejos con páginas maestras. 
+    Además, su comunidad activa mantiene plantillas, complementos y soporte disponible para estudiantes y docentes.
   </p>
 
-  <!-- IMAGEN EJEMPLO 2 -->
-  <figure class="ejemplo-img">
-      <img src="imagenes/scribus-marcos.jpg" alt="Marcos de texto e imagen en Scribus">
-      <figcaption>Uso de marcos de texto e imagen en un diseño editorial</figcaption>
-  </figure>
+  <!-- IMAGEN 2 -->
+  <div style="margin:28px 0;text-align:center;">
+    <img src="scribus2.jpg" class="img-zoomable" alt="Ejemplo de maquetación con Scribus" style="max-width:100%;border-radius:12px;">
+    <p style="color:var(--muted);font-size:14px;">Ejemplo de maquetación editorial creada con Scribus.</p>
+  </div>
 
-  <p>
-    Scribus también es ideal para quienes están aprendiendo diseño editorial, ya que su interfaz 
-    intuitiva y su estructura basada en marcos facilitan la comprensión de conceptos como jerarquía 
-    visual, flujo de lectura, retícula y manejo de tipografías. Además, funciona en Windows, macOS 
-    y Linux, lo que lo hace accesible prácticamente para cualquier usuario.
+  <h2>¿Por qué usarlo en diseño editorial?</h2>
+  <p class="muted">
+    Para estudiantes, Scribus representa una opción accesible, estable y profesional. Su estructura basada en 
+    cuadros de texto, imágenes y capas facilita aprender conceptos fundamentales del diseño editorial. 
+    También permite exportar documentos con configuraciones avanzadas, ideales para proyectos escolares y 
+    publicaciones institucionales.
   </p>
 
   <!-- BOTÓN DE DESCARGA -->
-  <div style="margin-top: 30px; text-align:center;">
-    <a href="https://www.scribus.net/downloads/" target="_blank" class="btn-descarga" 
-       style="
-         display:inline-block;
-         padding:14px 28px;
-         background-color:#4b2be3;
-         color:white;
-         text-decoration:none;
-         font-weight:600;
-         border-radius:10px;
-         font-size:1.1rem;
-       ">
-      Descargar Scribus
+  <div style="margin:40px 0;text-align:center;">
+    <a href="https://www.scribus.net/downloads/" target="_blank"
+       style="padding:14px 26px;border-radius:12px;font-weight:700;text-decoration:none;
+              background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;">
+      ⬇️ Descargar Scribus
     </a>
   </div>
 
 </section>
 
+<footer>
+  © 2025 — Diseño Editorial
+</footer>
 
+</main>
+</div>
+
+<!-- MODAL -->
+<div id="img-modal">
+  <span id="img-modal-close">✕</span>
+  <img id="img-modal-content" src="">
+</div>
+
+<script>
+  document.querySelectorAll('.img-zoomable').forEach(img => {
+    img.addEventListener('click', () => {
+      const modal = document.getElementById('img-modal');
+      const modalImg = document.getElementById('img-modal-content');
+      modal.classList.add('active');
+      modalImg.src = img.src;
+    });
+  });
+
+  document.getElementById('img-modal-close').addEventListener('click', () => {
+    document.getElementById('img-modal').classList.remove('active');
+  });
+
+  document.getElementById('img-modal').addEventListener('click', (e) => {
+    if (e.target.id === 'img-modal') {
+      document.getElementById('img-modal').classList.remove('active');
+    }
+  });
+</script>
 
 </body>
 </html>
